@@ -1,0 +1,22 @@
+
+
+    <div class="row">
+      <div class="col">
+        {{post.body}}
+      </div>
+      <div class="col-3">
+        <div class="input-group">
+          <input [(ngModel)]="commentSearch" placeholder="Search Comment">
+        </div>
+      </div>
+      <div class="col-2">
+        <button type="button" class="btn btn-outline-info btn-sm" (click)="toggleDisplay()">{{display ? 'Hide':"show"}}  comments</button>
+      </div>
+    </div>
+    <div class="row">
+      <div  class="commentBox col" *ngIf="display" >
+
+        <app-comment [comment]="comment" *ngFor="let comment of filteredComment(); index as i"></app-comment>
+      </div>
+
+    </div>
